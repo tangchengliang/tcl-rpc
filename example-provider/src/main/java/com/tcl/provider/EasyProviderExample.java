@@ -2,6 +2,7 @@ package com.tcl.provider;
 
 
 import com.tcl.common.service.UserService;
+import com.tcl.tclrpc.RpcApplication;
 import com.tcl.tclrpc.registry.LocalRegistry;
 import com.tcl.tclrpc.server.HttpServer;
 import com.tcl.tclrpc.server.VertxHttpServer;
@@ -12,11 +13,23 @@ import com.tcl.tclrpc.server.VertxHttpServer;
 public class EasyProviderExample {
 
     public static void main(String[] args) {
-//        // 注册服务
+        /**
+        // 注册服务
         LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
-//
-//        // 启动 web 服务
+
+        // 启动 web 服务
         HttpServer httpServer = new VertxHttpServer();
         httpServer.doStart(8080);
+         */
+
+        // RPC 框架初始化
+        RpcApplication.init();
+
+        // 注册服务
+        LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
+
+        // 启动 web 服务
+        HttpServer httpServer = new VertxHttpServer();
+        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
     }
 }
