@@ -1,0 +1,5 @@
+# Project exclude paths
+/example-common/target/
+/example-consumer/target/
+/example-provider/target/
+/tcl-rpc-easy/target/
