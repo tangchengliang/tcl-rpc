@@ -18,15 +18,18 @@ public class ConsumerExample {
         User user = new User();
         user.setName("tcl");
 
-        User newUser = userService.getUser(user);
-        if(newUser != null) {
-            System.out.println(newUser.getName());
-        }else{
-            System.out.println("null==user");
+        for (int i = 0; i < 5; i++) {
+            User newUser = userService.getUser(user);
+            if(newUser != null) {
+                System.out.println(newUser.getName());
+            }else{
+                System.out.println("null==user");
+            }
+
+            long number = userService.getNumber();
+            System.out.println(number);
         }
 
-        long number = userService.getNumber();
-        System.out.println(number);
 
     }
 }
