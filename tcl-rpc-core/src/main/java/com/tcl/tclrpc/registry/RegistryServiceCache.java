@@ -5,6 +5,8 @@ package com.tcl.tclrpc.registry;
 import com.tcl.tclrpc.model.ServiceMetaInfo;
 
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 注册中心服务本地缓存
@@ -14,31 +16,33 @@ public class RegistryServiceCache {
     /**
      * 服务缓存
      */
-    List<ServiceMetaInfo> serviceCache;
+    Map<String, List<ServiceMetaInfo>> serviceCache = new ConcurrentHashMap<>();
 
     /**
      * 写缓存
      *
-     * @param newServiceCache
+     * @param serviceKey 服务键名
+     * @param newServiceCache 更新后的缓存列表
      * @return
      */
-    void writeCache(List<ServiceMetaInfo> newServiceCache) {
-        this.serviceCache = newServiceCache;
+    void writeCache(String serviceKey, List<ServiceMetaInfo> newServiceCache) {
+        this.serviceCache.put(serviceKey, newServiceCache);
     }
 
     /**
      * 读缓存
      *
+     * @param serviceKey
      * @return
      */
-    List<ServiceMetaInfo> readCache() {
-        return this.serviceCache;
+    List<ServiceMetaInfo> readCache(String serviceKey) {
+        return this.serviceCache.get(serviceKey);
     }
 
     /**
      * 清空缓存
      */
-    void clearCache() {
-        this.serviceCache = null;
+    void clearCache(String serviceKey) {
+        this.serviceCache.remove(serviceKey);
     }
 }

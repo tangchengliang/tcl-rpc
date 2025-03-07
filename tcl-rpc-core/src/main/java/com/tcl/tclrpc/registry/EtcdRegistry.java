@@ -90,7 +90,7 @@ public class EtcdRegistry implements Registry {
     @Override
     public List<ServiceMetaInfo> serviceDiscovery(String serviceKey) {
         // 先从缓存获取
-        List<ServiceMetaInfo> cachedServiceMetaInfoList = registryServiceCache.readCache();
+        List<ServiceMetaInfo> cachedServiceMetaInfoList = registryServiceCache.readCache(serviceKey);
         if(cachedServiceMetaInfoList != null) {
             return cachedServiceMetaInfoList;
         }
@@ -118,7 +118,7 @@ public class EtcdRegistry implements Registry {
                     .collect(Collectors.toList());
 
             // 写入缓存
-            registryServiceCache.writeCache(serviceMetaInfoList);
+            registryServiceCache.writeCache(serviceKey,serviceMetaInfoList);
             return serviceMetaInfoList;
         } catch (Exception e) {
             throw new RuntimeException("获取服务列表失败", e);
@@ -197,7 +197,7 @@ public class EtcdRegistry implements Registry {
                         // key 删除时触发
                         case DELETE:
                             // 清理注册服务缓存
-                            registryServiceCache.clearCache();
+                            registryServiceCache.clearCache(serviceNodeKey);
                             break;
                         case PUT:
                         default:
