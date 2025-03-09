@@ -11,6 +11,7 @@ import com.tcl.tclrpc.registry.Registry;
 import com.tcl.tclrpc.registry.RegistryFactory;
 import com.tcl.tclrpc.server.HttpServer;
 import com.tcl.tclrpc.server.VertxHttpServer;
+import com.tcl.tclrpc.server.tcp.VertxTcpServer;
 
 /**
  * 服务提供者示例
@@ -41,7 +42,11 @@ public class ProviderExample {
         }
 
         // 启动 web 服务
-        HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+//        HttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+
+        // 启动 TCP 服务
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(8080);
     }
 }
