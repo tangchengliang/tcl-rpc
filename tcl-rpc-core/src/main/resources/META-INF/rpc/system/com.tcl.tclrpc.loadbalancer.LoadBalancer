@@ -1,0 +1,3 @@
+roundRobin=com.tcl.tclrpc.loadbalancer.RoundRobinLoadBalancer
+random=com.tcl.tclrpc.loadbalancer.RandomLoadBalancer
+consistentHash=com.tcl.tclrpc.loadbalancer.ConsistentHashLoadBalancer
