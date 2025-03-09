@@ -1,0 +1,4 @@
+failBack=com.tcl.tclrpc.fault.tolerant.FailBackTolerantStrategy
+failFast=com.tcl.tclrpc.fault.tolerant.FailFastTolerantStrategy
+failOver=com.tcl.tclrpc.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.tcl.tclrpc.fault.tolerant.FailSafeTolerantStrategy

@@ -1,6 +1,7 @@
 package com.tcl.tclrpc.config;
 
 import com.tcl.tclrpc.fault.retry.RetryStrategyKeys;
+import com.tcl.tclrpc.fault.tolerant.TolerantStrategyKeys;
 import com.tcl.tclrpc.loadbalancer.LoadBalancerKeys;
 import com.tcl.tclrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -52,5 +53,10 @@ public class RpcConfig {
      * 重试策略
      */
     private String retryStrategy = RetryStrategyKeys.FIXED_INTERVAL;
+
+    /**
+     * 容错策略
+     */
+    private String tolerantStrategy = TolerantStrategyKeys.FAIL_FAST;
 
 }
