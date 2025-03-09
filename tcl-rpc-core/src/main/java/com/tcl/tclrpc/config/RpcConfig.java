@@ -1,5 +1,6 @@
 package com.tcl.tclrpc.config;
 
+import com.tcl.tclrpc.fault.retry.RetryStrategyKeys;
 import com.tcl.tclrpc.loadbalancer.LoadBalancerKeys;
 import com.tcl.tclrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -46,5 +47,10 @@ public class RpcConfig {
      * 负载均衡器
      */
     private String loadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 重试策略
+     */
+    private String retryStrategy = RetryStrategyKeys.FIXED_INTERVAL;
 
 }
