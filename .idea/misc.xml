@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/example-common/pom.xml" />
         <option value="$PROJECT_DIR$/tcl-rpc-easy/pom.xml" />
         <option value="$PROJECT_DIR$/tcl-rpc-core/pom.xml" />
+        <option value="$PROJECT_DIR$/tcl-rpc-springboot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/example-springboot-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/example-springboot-provider/pom.xml" />
       </list>
     </option>
   </component>

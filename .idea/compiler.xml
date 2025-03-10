@@ -7,11 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="example-springboot-provider" />
+        <module name="example-springboot-consumer" />
         <module name="example-provider" />
         <module name="tcl-rpc-easy" />
         <module name="tcl-rpc-easy (1)" />
-        <module name="example-consumer" />
+        <module name="tcl-rpc-springboot-starter" />
         <module name="example-common" />
+        <module name="example-consumer" />
       </profile>
     </annotationProcessing>
   </component>
