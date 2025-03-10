@@ -2,6 +2,7 @@ package com.tcl.consumer;
 
 import com.tcl.common.model.User;
 import com.tcl.common.service.UserService;
+import com.tcl.tclrpc.bootstrap.ConsumerBootstrap;
 import com.tcl.tclrpc.proxy.ServiceProxyFactory;
 
 /**
@@ -13,6 +14,9 @@ public class ConsumerExample {
     public static void main(String[] args) {
 //        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
 //        System.out.println(rpc);
+
+        // 服务提供者初始化
+        ConsumerBootstrap.init();
 
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
