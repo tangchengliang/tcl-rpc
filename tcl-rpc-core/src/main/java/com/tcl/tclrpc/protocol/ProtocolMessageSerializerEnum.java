@@ -17,7 +17,8 @@ public enum ProtocolMessageSerializerEnum {
     JDK(0, "jdk"),
     JSON(1, "json"),
     KRYO(2, "kryo"),
-    HESSIAN(3, "hessian");
+    HELLO(3, "hello"),
+    HESSIAN(4, "hessian");
 
     private final int key;
 
